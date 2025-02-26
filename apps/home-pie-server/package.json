@@ -1,0 +1,11 @@
+{
+    "name": "home-pie-server",
+    "version": "1.0.0",
+    "scripts": {
+      "dev": "echo 'Run dev server manually'",
+      "build": "echo 'No build step for Django'",
+      "lint": "echo 'No linting for Django'",
+      "migrate": "python manage.py migrate"
+    }
+  }
+  

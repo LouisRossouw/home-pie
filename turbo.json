@@ -5,7 +5,11 @@
     "build": {
       "dependsOn": ["^build"],
       "inputs": ["$TURBO_DEFAULT$", ".env*"],
-      "outputs": [".next/**", "!.next/cache/**", "dist/**"]
+      "outputs": [
+        "apps/home-pie-desktop/dist/**",      
+        "apps/home-pie-mobile/dist/**",     
+        "apps/home-pie-server/static/**"      
+      ]
     },
     "lint": {
       "dependsOn": ["^lint"]
