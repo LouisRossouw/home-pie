@@ -1,0 +1,5 @@
+{
+  "extends": "@pie/typescript-config/base.json",
+  "include": ["tailwind.config.js"],
+  "exclude": ["node_modules", "dist", "build", "android"]
+}
