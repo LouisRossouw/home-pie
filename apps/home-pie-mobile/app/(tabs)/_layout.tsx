@@ -1,43 +1,49 @@
-import { Tabs } from 'expo-router';
-import React from 'react';
-import { Platform } from 'react-native';
+import React from "react";
+import { useColorScheme } from "~/lib/useColorScheme";
+import { NAV_THEME } from "~/lib/constants";
 
-import { HapticTab } from '@/components/HapticTab';
-import { IconSymbol } from '@/components/ui/IconSymbol';
-import TabBarBackground from '@/components/ui/TabBarBackground';
-import { Colors } from '@/constants/Colors';
-import { useColorScheme } from '@/hooks/useColorScheme';
+import { MaterialCommunityIcons } from "@expo/vector-icons";
+import { Tabs } from "expo-router";
 
 export default function TabLayout() {
-  const colorScheme = useColorScheme();
+  const { isDarkColorScheme } = useColorScheme();
+  const constColor = isDarkColorScheme ? NAV_THEME.dark : NAV_THEME.light;
 
   return (
-    <Tabs
-      screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
-        headerShown: false,
-        tabBarButton: HapticTab,
-        tabBarBackground: TabBarBackground,
-        tabBarStyle: Platform.select({
-          ios: {
-            // Use a transparent background on iOS to show the blur effect
-            position: 'absolute',
-          },
-          default: {},
-        }),
-      }}>
+    <Tabs>
       <Tabs.Screen
-        name="index"
+        name="home"
         options={{
-          title: 'Home',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="house.fill" color={color} />,
+          headerShown: true,
+          tabBarShowLabel: false,
+          headerTitleAlign: "center",
+          headerTitle: "Home Pie",
+          tabBarIcon: ({ color, size }) => (
+            <MaterialCommunityIcons name="motion" color={color} size={16} />
+          ),
         }}
       />
+
       <Tabs.Screen
-        name="explore"
+        name="settings"
         options={{
-          title: 'Explore',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />,
+          headerShown: false,
+          headerTitle: "Settings",
+          tabBarShowLabel: false,
+
+          headerStyle: {
+            backgroundColor: constColor.background,
+          },
+          headerTitleStyle: { color: constColor.text, fontSize: 16 },
+          tabBarStyle: { backgroundColor: constColor.background },
+
+          tabBarIcon: ({ color, size }) => (
+            <MaterialCommunityIcons
+              name="cog-outline"
+              color={color}
+              size={16}
+            />
+          ),
         }}
       />
     </Tabs>
