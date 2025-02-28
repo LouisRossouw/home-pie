@@ -22,14 +22,15 @@
   },
   "dependencies": {
     "@electron-toolkit/preload": "^3.0.1",
-    "@electron-toolkit/utils": "^4.0.0"
+    "@electron-toolkit/utils": "^4.0.0",
+    "react-router": "^7.2.0"
   },
   "devDependencies": {
-    "@pie/tailwind-config": "workspace:*",
-    "@pie/typescript-config": "workspace:*",
     "@electron-toolkit/eslint-config-prettier": "^3.0.0",
     "@electron-toolkit/eslint-config-ts": "^3.0.0",
     "@electron-toolkit/tsconfig": "^1.0.1",
+    "@pie/tailwind-config": "workspace:*",
+    "@pie/typescript-config": "workspace:*",
     "@types/node": "^22.13.4",
     "@types/react": "^18.3.18",
     "@types/react-dom": "^18.3.5",
