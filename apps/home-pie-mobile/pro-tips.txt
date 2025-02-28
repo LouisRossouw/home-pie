@@ -1,0 +1,8 @@
+
+1. dev builds dont always work with long path names, so this project needs to live at C:\
+
+2. To ping the local python servver from mobile app that is not connect to the project:
+
+- in ./android\app\src\main\AndroidManifest.xml  .. put android:usesCleartextTraffic="true" in the <application android:usesCleartextTraffic="true"> tag
+- Reason, the built APK cant ping http by design, it can only ping https, so either connect the phone to the PC via USB and we can ping it just fine, or
+- add the above tag to application and then build the apk, then install the apk and it can ping http
